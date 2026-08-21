@@ -3,13 +3,14 @@
 import numpy as np
 import joblib  # For loading the serialized model
 import pandas as pd  # For data manipulation
+from pathlib import Path
 from flask import Flask, request, jsonify  # For creating the Flask API
 
 # Initialize Flask app with a name
 superkart_api = Flask("SuperKart")
 
 # Load the trained model
-model = joblib.load("superkart_model.joblib")
+model = joblib.load(Path(__file__).with_name("XGBoost_GBEHADE.joblib"))
 
 # Define a route for the home page
 @superkart_api.get('/')
